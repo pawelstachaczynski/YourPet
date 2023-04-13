@@ -1,0 +1,11 @@
+body {
+    padding-bottom: 20px;
+  }
+
+.active {
+    background-color: #3DB195;
+  }
+
+.navbar {
+    background-color:  #404040; 
+  }
