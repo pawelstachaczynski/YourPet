@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { UserPanelComponent } from './user-panel/user-panel.component';
 import { UserNavigationComponent } from './user-panel/user-navigation/user-navigation.component';
-// test1
+import { UserPanelMainPageComponent } from './user-panel/user-panel-main-page/user-panel-main-page.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     UserPanelComponent,
-    UserNavigationComponent
+    UserNavigationComponent,
+    UserPanelMainPageComponent
   ],
   imports: [
     BrowserModule,
