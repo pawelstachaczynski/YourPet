@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user-panel-main-page',
   templateUrl: './user-panel-main-page.component.html',
-  styles: [
-  ]
+  styleUrls: ['./user-panel-main-page.component.css']
 })
-export class UserPanelMainPageComponent {
+export class UserPanelMainPageComponent{
 
+  //parrotImage = 
 }

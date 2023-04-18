@@ -1,0 +1,44 @@
+
+
+.container-fluid  {
+    background-color: #f3f6d8;
+}
+
+#text {
+    font-family: 'Fira Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 171%;
+    letter-spacing: 0.01em;
+    color: #6C6C6C;
+}
+
+#text2 {
+font-family: 'Fira Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 171%;
+letter-spacing: 0.01em;
+color: #000000;
+}
+
+.container-lg {
+    padding: 20px 10px 50px 10px;
+}
+
+#logos {
+    max-width: 120px;
+    margin-top: 20px;
+    padding: 1%;
+}
+
+.col-md-6 {
+    text-align: center;
+}
+
+.image-wrapper
+{
+    padding: 5%;
+}
