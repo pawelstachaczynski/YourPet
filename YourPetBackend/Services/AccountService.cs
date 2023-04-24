@@ -1,6 +1,7 @@
 using AutoMapper;
 using EatThisAPI.Models.DTOs.User;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 //using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -27,11 +28,13 @@ namespace YourPetAPI.Services
         private readonly IMapper _mapper;
        // private readonly ILogger _logger;
         private readonly IUserRepository _userRepository;
+        private readonly IPasswordHasher<User> _passwordHasher;
         
-        public AccountService(IMapper mapper, IUserRepository userRepository)
+        public AccountService(IMapper mapper, IUserRepository userRepository, IPasswordHasher<User> passwordHasher)
         {
             _mapper = mapper;
             _userRepository = userRepository;
+            _passwordHasher = passwordHasher;
         }
 
         public async Task RegisterUser(RegisterUserDto registerUserDto)
@@ -41,6 +44,9 @@ namespace YourPetAPI.Services
             newUser.RegisterDate = DateTime.UtcNow;
             newUser.IsActive = false;
             newUser.RoleId = 3;
+            var hashedPassword = _passwordHasher.HashPassword(newUser, registerUserDto.Password);
+            newUser.PasswordHash = hashedPassword;
+            
             await _userRepository.RegisterUser(newUser);
         }
     }
