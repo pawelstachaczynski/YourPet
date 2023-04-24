@@ -39,9 +39,8 @@ namespace YourPetAPI.Helpers
                 .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
                 .ForMember(x => x.FirstName, y => y.MapFrom(z => z.FirstName))
                 .ForMember(x => x.LastName, y => y.MapFrom(z => z.LastName))
-                .ForMember(x => x.City, y => y.MapFrom(z => z.City))
-                .ForMember(x => x.RoleId, y => y.MapFrom(z => z.RoleId))
-                .ForMember(x => x.Role, y => y.MapFrom(z => z.Role));
+                .ForMember(x => x.City, y => y.MapFrom(z => z.City));
+                
 
         }
     }

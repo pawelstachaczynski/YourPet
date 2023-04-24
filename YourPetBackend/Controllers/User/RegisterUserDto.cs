@@ -15,29 +15,11 @@ namespace EatThisAPI.Models.DTOs.User
         public string LastName { get; set; }
         public string City { get; set; }
 
-        // public string PasswordHash { get; set; }
-        // public bool IsActive { get; set; }
+        public string Password { get; set; }
+        //public bool IsActive { get; set; }
         //public string Image { get; set; }
         
-        public int RoleId { get; set; }
-        public virtual Role Role { get; set; }
+        //public int RoleId { get; set; }
+        //public virtual Role Role { get; set; }
     }
 }
-
-
-//namespace EatThisAPI.Models.DTOs.User
-//{
-//    public class RegisterUserDto
-//    {
-//        [Required]
-//        public string Email { get; set; }
-//        [Required]
-//        [MinLength(6)]
-//        public string Password { get; set; }
-//        [Required]
-//        public string FirstName { get; set; }
-//        [Required]
-//        public string LastName { get; set; }
-//        public DateTime? BirthDate { get; set; }
-//    }
-//}

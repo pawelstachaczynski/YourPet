@@ -17,7 +17,9 @@ export class LoginComponent implements OnInit {
   });
 
   private login: Login;
-  constructor(private router: Router, private configStore: ConfigStore, private authService: AuthService,private alertService: AlertService) { }
+  constructor(private router: Router, private configStore: ConfigStore, private alertService: AlertService
+    //private authService: AuthService
+    ) { }
 
   ngOnInit(): void {
   }
@@ -27,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.configStore.startLoadingPanel();
     this.login = new Login(this.loginForm.value.email, this.loginForm.value.password)
     this.alertService.showError("Nie zalogowano");
-    let authToken = await this.authService.logIn(this.login).toPromise();
+   // let authToken = await this.authService.logIn(this.login).toPromise();
   }
 
   }

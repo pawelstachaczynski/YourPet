@@ -11,6 +11,6 @@ export class AuthService {
     
 }
     logIn(login: Login) {
-    return this.http.post<AuthToken>(`${this.apiUrl}login`, login)
+    return true; //return null; //this.http.post<AuthToken>(`${this.apiUrl}login`, login)
     }
 }

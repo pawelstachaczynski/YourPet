@@ -57,6 +57,7 @@ namespace YourPetAPI.Services
         public int RegisterUser(RegisterUserDto dto)
         {
             var user = _mapper.Map<User>(dto);
+            user.RoleId = 3;
             _dbContext.Users.Add(user);
             _dbContext.SaveChanges();
 
