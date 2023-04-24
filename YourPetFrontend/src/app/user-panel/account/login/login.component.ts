@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from 'src/app/models/login.model';
-
+import { ConfigStore } from 'src/app/app-config/config-store';
+import { AlertService } from 'src/app/services/app-services/alert.service';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,16 +17,17 @@ export class LoginComponent implements OnInit {
   });
 
   private login: Login;
-  constructor(private router: Router) { }
+  constructor(private router: Router, private configStore: ConfigStore, private authService: AuthService,private alertService: AlertService) { }
 
   ngOnInit(): void {
   }
 
   async logIn() {
-    console.log('ss');
     let isOk: boolean;
+    this.configStore.startLoadingPanel();
     this.login = new Login(this.loginForm.value.email, this.loginForm.value.password)
-    
+    this.alertService.showError("Nie zalogowano");
+    let authToken = await this.authService.logIn(this.login).toPromise();
   }
 
   }

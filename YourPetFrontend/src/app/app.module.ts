@@ -9,6 +9,14 @@ import { UserNavigationComponent } from './user-panel/user-navigation/user-navig
 import { UserPanelMainPageComponent } from './user-panel/user-panel-main-page/user-panel-main-page.component';
 import { LoginComponent } from './user-panel/account/login/login.component';
 import { AccountComponent } from './user-panel/account/account.component';
+import { ToastrModule } from 'ngx-toastr';
+import { CommonModule } from '@angular/common';
+import { AlertService } from './services/app-services/alert.service';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ConfigStore } from './app-config/config-store';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -17,16 +25,26 @@ import { AccountComponent } from './user-panel/account/account.component';
     UserNavigationComponent,
     UserPanelMainPageComponent,
     LoginComponent,
-    AccountComponent
+    AccountComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
+    MatProgressSpinnerModule,
+    ToastrModule.forRoot({
+    })
   ],
-  providers: [],
+  providers: [
+    ConfigStore,
+    HttpClient,
+    AlertService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
