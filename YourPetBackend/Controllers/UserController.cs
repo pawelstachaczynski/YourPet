@@ -2,7 +2,6 @@
 //using EatThisAPI.Models.DTOs.User;
 //using YourPetAPI.Services;
 using AutoMapper;
-using EatThisAPI.Models.DTOs.User;
 using Microsoft.AspNetCore.Authorization;
 //using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -14,13 +13,14 @@ using System.Threading.Tasks;
 using YourPetAPI.Database;
 using YourPetAPI.Models;
 using YourPetAPI.Services;
+using YourPetAPI.Models.DTOs.User;
 
 namespace YourPetAPI.Controllers
 {
-   // [ApiController]
-   // [Route("api/[controller]")]
-  //  [ApiController]
-  //test
+    // [ApiController]
+    // [Route("api/[controller]")]
+    //  [ApiController]
+    //test
     [Route("api/users")]
     public class UserController : ControllerBase
     {
@@ -37,6 +37,7 @@ namespace YourPetAPI.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public ActionResult<IEnumerable<UserDto>> GetAllUsers()
         {
 

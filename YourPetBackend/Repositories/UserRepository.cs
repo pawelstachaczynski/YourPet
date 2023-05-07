@@ -14,6 +14,8 @@ namespace YourPetAPI.Repositories
     public interface IUserRepository
     {
         Task<int> RegisterUser(User newUser);
+
+        Task<User> GetUserByEmail(string email);
     }
 
     public class UserRepository : IUserRepository
@@ -42,6 +44,11 @@ namespace YourPetAPI.Repositories
             var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == userId);
             user.RoleId = roleId;
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<User> GetUserByEmail(string email)
+        {
+            return await _context.Users.Include(x => x.Role).FirstOrDefaultAsync(x => x.Email == email);
         }
     }
 }

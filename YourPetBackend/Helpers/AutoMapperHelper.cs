@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using EatThisAPI.Models.DTOs.User;
+using YourPetAPI.Models.DTOs.User;
+using YourPetAPI.Models.DTOs;
 
 namespace YourPetAPI.Helpers
 {
@@ -40,7 +41,17 @@ namespace YourPetAPI.Helpers
                 .ForMember(x => x.FirstName, y => y.MapFrom(z => z.FirstName))
                 .ForMember(x => x.LastName, y => y.MapFrom(z => z.LastName))
                 .ForMember(x => x.City, y => y.MapFrom(z => z.City));
-                
+
+            CreateMap<LoginDto, User>()
+                .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
+                .ForMember(x => x.PasswordHash, y => y.MapFrom(z => z.Password));
+
+            CreateMap<User, LoginDto>()
+               .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
+               .ForMember(x => x.Password, y => y.MapFrom(z => z.PasswordHash));
+
+
+
 
         }
     }

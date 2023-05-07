@@ -1,5 +1,4 @@
 using AutoMapper;
-using EatThisAPI.Models.DTOs.User;
 using Microsoft.AspNetCore.Authorization;
 //using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +10,7 @@ using System.Threading.Tasks;
 using YourPetAPI.Database;
 using YourPetAPI.Exceptions;
 using YourPetAPI.Models;
+using YourPetAPI.Models.DTOs.User;
 
 namespace YourPetAPI.Services
 {
@@ -82,6 +82,7 @@ namespace YourPetAPI.Services
 
             if (user is null)
                 throw new CustomException("User not found");
+            //var user = _mapper.Map<User>(dto); ???
             user.FirstName = dto.FirstName;
             user.LastName = dto.LastName;
             user.City = dto.City;

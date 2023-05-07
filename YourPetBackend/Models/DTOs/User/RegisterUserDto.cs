@@ -5,11 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using YourPetAPI.Models;
 
-namespace EatThisAPI.Models.DTOs.User
+namespace YourPetAPI.Models.DTOs.User
 {
     public class RegisterUserDto
     {
-      
+
         public string Email { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -18,7 +18,7 @@ namespace EatThisAPI.Models.DTOs.User
         public string Password { get; set; }
         //public bool IsActive { get; set; }
         //public string Image { get; set; }
-        
+
         //public int RoleId { get; set; }
         //public virtual Role Role { get; set; }
     }

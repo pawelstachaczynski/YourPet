@@ -1,5 +1,5 @@
 using AutoMapper;
-using EatThisAPI.Models.DTOs.User;
+using YourPetAPI.Models.DTOs.User;
 using Microsoft.AspNetCore.Authorization;
 //using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;

@@ -21,7 +21,12 @@ namespace YourPetAPI.Database
 
         public void Seed()
         {
-            if(_dbContext.Database.CanConnect())
+            if (!_dbContext.Database.CanConnect())
+            {
+                _dbContext.Database.Migrate();
+            }
+
+                if (_dbContext.Database.CanConnect())
             {
                 if(!_dbContext.Roles.Any())
                 {
