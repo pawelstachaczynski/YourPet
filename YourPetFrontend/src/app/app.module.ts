@@ -17,6 +17,7 @@ import { ConfigStore } from './app-config/config-store';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { AuthService } from './services/auth.service';
+import { RegisterComponent } from './user-panel/account/register/register.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AuthService } from './services/auth.service';
     UserPanelMainPageComponent,
     LoginComponent,
     AccountComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
