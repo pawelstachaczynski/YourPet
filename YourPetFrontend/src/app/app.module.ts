@@ -18,7 +18,11 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { AuthService } from './services/auth.service';
 import { RegisterComponent } from './user-panel/account/register/register.component';
-
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MaterialModule } from 'src/material.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +41,8 @@ import { RegisterComponent } from './user-panel/account/register/register.compon
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    MatProgressSpinnerModule,
+    MaterialModule,
+    HttpClientModule,
     ToastrModule.forRoot({
     })
   ],
@@ -45,7 +50,8 @@ import { RegisterComponent } from './user-panel/account/register/register.compon
     ConfigStore,
     HttpClient,
     AlertService,
-    AuthService
+    AuthService,
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
   ],
   bootstrap: [AppComponent]
 })
