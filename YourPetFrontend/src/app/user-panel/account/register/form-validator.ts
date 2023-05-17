@@ -1,20 +1,21 @@
-import { AbstractControl, ValidatorFn } from '@angular/forms';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 
 export class FormValidators {
-    static mustMatch(controlName: string, checkControlName: string): ValidatorFn {
-        return (controls: AbstractControl) => {
-          const control = controls.get(controlName);
-          const checkControl = controls.get(checkControlName);
+    static mustMatch(controlName: string, checkControlName: string) {
+        return (control: AbstractControl) => {
+          const password = control.get(controlName);
+          const checkControl = control.get(checkControlName);
           if (checkControl?.errors && !checkControl.errors['mustMatch']) {
             return null;
-          }
-          if (control?.value !== checkControl?.value) {
+          } 
+          if (password?.value !== checkControl?.value) {
             checkControl?.setErrors({ mustMatch: true });
             return { mustMatch: true };
           } else {
-            checkControl?.setErrors(null);
+           checkControl?.setErrors(null);
             return null;
           }
         };
       }
-}
+} 
+

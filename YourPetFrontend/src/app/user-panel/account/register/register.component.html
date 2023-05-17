@@ -1,127 +1,129 @@
 
 <div class="absolute">
-    <div class="col-12 row">
-      <div class="col-4"></div>
-      <div class="col-4">
-        <div class="card">
-          <div class="card-header">
-            <h2 class="text-center">Zarejestruj się!</h2>
-          </div>
-          <div class="card-body">
-            <form class="form" [formGroup]="formGroup" #form>
-              <div class="form-group m-1">
-                <label>* E-mail</label>
-                <mat-form-field class="full-width">
-                    <mat-label>Wprowadź e-mail</mat-label>
-                    <input matInput 
-                    formControlName= "email" 
-                    type="email" 
-                    requiredField>
-                    <mat-error>Pole jest wymagane</mat-error>
-                  </mat-form-field>
-              </div>
-              <div class="form-group m-1">
-                <label>* Hasło</label>
-                <mat-form-field class="full-width">
-                    <mat-label>Wprowadź hasło</mat-label>
-                    <input matInput 
-                    formControlName= "password" 
-                    type="password" 
-                    class="form-control"
-                    requiredField><mat-error>Hasło musi mieć minimum <strong>6 znaków</strong></mat-error>
-                  </mat-form-field>
-              </div>
-              <div class="form-group m-1">
-                <label>* Powtórz Hasło</label> ({{formGroup.hasError('passwordMismatch')}})
-                <mat-form-field class="full-width">
-                    <mat-label></mat-label>
-                    <input matInput 
-                    formControlName= "confirmPassword" 
-                    type="password" 
-                    class="form-control"
-                    requiredField>
-                    <mat-error *ngIf="formGroup.get('confirmPassword').value.length < 6">Hasło za krótkie</mat-error>
-                    <mat-error *ngIf="formGroup.get('confirmPassword')?.hasError('mustMatch')">Hasła nie pasują do siebie</mat-error>
-                  </mat-form-field>
-              </div>
-             
-              <div class="form-group m-1">
-                <label>* Imię</label>
-                <mat-form-field class="full-width">
-                    <mat-label></mat-label>
-                    <input matInput 
-                    formControlName= "firstName" 
-                    type="text" 
-                    class="form-control"
-                    requiredField>
-                  </mat-form-field>
-              </div>
-              <div class="form-group m-1">
-                <label>* Nazwisko</label>
-                <mat-form-field class="full-width">
-                    <mat-label></mat-label>
-                    <input matInput 
-                    formControlName= "lastName" 
-                    type="text" 
-                    class="form-control"
-                    requiredField>
-                  </mat-form-field>
-              </div>
-              <div class="form-group m-1">
-                <label>* Miasto</label>
-                <mat-form-field class="full-width">
-                    <mat-label></mat-label>
-                    <input matInput 
-                    formControlName= "city" 
-                    type="text" 
-                    class="form-control"
-                    requiredField>
-                  </mat-form-field>
-              </div>
-              <div class="form-group m-1">
-                <label>* Rola</label>
-                <mat-form-field class="full-width">
-                    <mat-label></mat-label>
-                    <input matInput 
-                    formControlName= "role" 
-                    type="number" 
-                    class="form-control"
-                    requiredField>
-                  </mat-form-field>
-              </div>
-              <div class="form-group m-1">
-                <label>* Telefon</label>
-                <mat-form-field class="full-width">
-                    <mat-label></mat-label>
-                    <input matInput 
-                    formControlName= "phone" 
-                    type="text" 
-                    class="form-control"
-                    requiredField>
-                  </mat-form-field>
-              </div>
-              <div class="form-group m-1">
-                <label>Opis</label>
-                <mat-form-field class="full-width">
-                    <mat-label></mat-label>
-                    <input matInput 
-                    formControlName= "description" 
-                    type="text" 
-                    class="form-control"
-                    requiredField>
-                  </mat-form-field>
-              </div>
-              <br>
-              <div class="form-group">
-                <p class="form-text text-muted text-center">Masz już konto? <a routerLink="../login">Zaloguj się!</a></p>
-              </div>
-              <div class="d-flex justify-content-end">
-                <button href class="btn btn-success m-1 text-right" (click)="registerUser()">Zarejestruj</button>
-              </div>
-            </form>
-          </div>
+  <div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="text-center">Zarejestruj się!</h2>
+        </div>
+        <div class="card-body">
+          <form class="form" [formGroup]="formGroup" #form>
+            <div class="row">
+		  <div class="col">
+            <div class="form-group m-1">
+              <label>* E-mail</label>
+              <mat-form-field class="full-width">
+                  <mat-label>Wprowadź e-mail</mat-label>
+                  <input matInput 
+                  formControlName= "email" 
+                  type="email" 
+                  >
+                  <mat-error>Pole jest wymagane</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-group m-1">
+              <label>* Hasło</label>
+              <mat-form-field class="full-width">
+                  <mat-label>Wprowadź hasło</mat-label>
+                  <input matInput 
+                  formControlName= "password" 
+                  type="password" 
+                  class="form-control"
+                  ><mat-error>Hasło musi mieć minimum <strong>6 znaków</strong></mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-group m-1">
+              <label>* Powtórz Hasło</label> ({{formGroup.hasError('passwordMismatch')}})
+              <mat-form-field class="full-width"> 
+                  <mat-label></mat-label>
+                  <input matInput 
+                  formControlName= "confirmPassword" 
+                  type="password" 
+                  class="form-control"
+                  >
+                  <mat-error *ngIf="formGroup.get('confirmPassword')?.hasError('mustMatch')">Hasła nie pasują do siebie</mat-error>
+                </mat-form-field>
+            </div>
+			</div>
+			<div class="col">
+           
+            <div class="form-group m-1">
+              <label>* Imię</label>
+              <mat-form-field class="full-width">
+                  <mat-label></mat-label>
+                  <input matInput 
+                  formControlName= "firstName" 
+                  type="text" 
+                  class="form-control"
+                  >
+                </mat-form-field>
+            </div>
+            <div class="form-group m-1">
+              <label>* Nazwisko</label>
+              <mat-form-field class="full-width">
+                  <mat-label></mat-label>
+                  <input matInput 
+                  formControlName= "lastName" 
+                  type="text" 
+                  class="form-control"
+                  >
+                </mat-form-field>
+            </div>
+            <div class="form-group m-1">
+              <label>* Miasto</label>
+              <mat-form-field class="full-width">
+                  <mat-label></mat-label>
+                  <input matInput 
+                  formControlName= "city" 
+                  type="text" 
+                  class="form-control"
+                  >
+                </mat-form-field>
+            </div>
+            <div class="form-group m-1">
+              <label>* Rola</label>
+              <mat-radio-group formControlName= "roleId" ><br>
+                <mat-radio-button value="3">Szukam Petsittera</mat-radio-button>
+                <mat-radio-button value="2">Petsitter</mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div class="form-group m-1">
+              <label>* Telefon</label>
+              <mat-form-field class="full-width">
+                  <mat-label></mat-label>
+                  <input matInput 
+                  formControlName= "phone" 
+                  type="text" 
+                  class="form-control"
+                  >
+                </mat-form-field>
+            </div>
+            <div class="form-group m-1">
+              <label>Opisz</label>
+              <mat-form-field class="full-width">
+                  <mat-label></mat-label>
+                  <textarea matInput 
+                  formControlName= "description" 
+                  type="text" 
+                  class="form-control"
+                  rows="3"
+                  ></textarea>
+                </mat-form-field>
+            </div>
+            <br>
+            <div class="form-group">
+              <p class="form-text text-muted text-center">Masz już konto? <a routerLink="../login">Zaloguj się!</a></p>
+            </div>
+            <div class="d-flex justify-content-end">
+              <button href class="btn btn-success m-1 text-right" (click)="registerUser()">Zarejestruj</button>
+            </div>
+			</div></div>
+          </form>
         </div>
       </div>
-      <div class="col-4"></div>
     </div>
+    <div class="col-2"></div>
   </div>
+</div> 
+

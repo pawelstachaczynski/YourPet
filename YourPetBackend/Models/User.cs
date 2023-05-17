@@ -13,6 +13,7 @@ namespace YourPetAPI.Models
         public string PasswordHash { get; set; }
         public bool IsActive { get; set; }
         //public string Image { get; set; }
+        public string Phone { get; set; }
         public string? Description { get; set; }
         public int RoleId { get; set; }
         public virtual Role Role { get; set; }

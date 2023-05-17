@@ -43,7 +43,7 @@ namespace YourPetAPI.Database
             {
                 new Role
                 {
-                    Name = "Admin"
+                    Name = "User"
                 },
                 new Role
                 {
@@ -51,7 +51,7 @@ namespace YourPetAPI.Database
                 },
                 new Role
                 {
-                    Name = "User"
+                    Name = "Admin"
                 }
             };
             return roles;

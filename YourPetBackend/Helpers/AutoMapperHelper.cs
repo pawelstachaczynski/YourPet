@@ -21,6 +21,7 @@ namespace YourPetAPI.Helpers
                 .ForMember(x => x.LastName, y => y.MapFrom(z => z.LastName))
                 .ForMember(x => x.City, y => y.MapFrom(z => z.City))
                 .ForMember(x => x.RegisterDate, y => y.MapFrom(z => z.RegisterDate))
+                .ForMember(x => x.Phone, y => y.MapFrom(z => z.Phone))
                 .ForMember(x => x.Description, y => y.MapFrom(z => z.Description))
                 .ForMember(x => x.RoleId, y => y.MapFrom(z => z.RoleId))
                 .ForMember(x => x.Role, y => y.MapFrom(z => z.Role));
@@ -32,6 +33,7 @@ namespace YourPetAPI.Helpers
                 .ForMember(x => x.LastName, y => y.MapFrom(z => z.LastName))
                 .ForMember(x => x.City, y => y.MapFrom(z => z.City))
                 .ForMember(x => x.RegisterDate, y => y.MapFrom(z => z.RegisterDate))
+                .ForMember(x => x.Phone, y => y.MapFrom(z => z.Phone))
                 .ForMember(x => x.Description, y => y.MapFrom(z => z.Description))
                 .ForMember(x => x.RoleId, y => y.MapFrom(z => z.RoleId))
                 .ForMember(x => x.Role, y => y.MapFrom(z => z.Role));
@@ -40,7 +42,18 @@ namespace YourPetAPI.Helpers
                 .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
                 .ForMember(x => x.FirstName, y => y.MapFrom(z => z.FirstName))
                 .ForMember(x => x.LastName, y => y.MapFrom(z => z.LastName))
-                .ForMember(x => x.City, y => y.MapFrom(z => z.City));
+                .ForMember(x => x.City, y => y.MapFrom(z => z.City))
+                .ForMember(x => x.RoleId, y => y.MapFrom(z => z.RoleId))
+                .ForMember(x => x.Phone, y => y.MapFrom(z => z.Phone));
+
+            CreateMap<User, RegisterUserDto>()
+                .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
+                .ForMember(x => x.FirstName, y => y.MapFrom(z => z.FirstName))
+                .ForMember(x => x.LastName, y => y.MapFrom(z => z.LastName))
+                .ForMember(x => x.City, y => y.MapFrom(z => z.City))
+                .ForMember(x => x.RoleId, y => y.MapFrom(z => z.Role))
+                .ForMember(x => x.Phone, y => y.MapFrom(z => z.Phone));
+
 
             CreateMap<LoginDto, User>()
                 .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))

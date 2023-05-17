@@ -103,7 +103,7 @@ namespace YourPetAPI.Services
             newUser.PasswordHash = registerUserDto.Password;
             newUser.RegisterDate = DateTime.UtcNow;
             newUser.IsActive = false;
-            newUser.RoleId = 3;
+           // newUser.RoleId = 3;
             var hashedPassword = _passwordHasher.HashPassword(newUser, registerUserDto.Password);
             newUser.PasswordHash = hashedPassword;
             
