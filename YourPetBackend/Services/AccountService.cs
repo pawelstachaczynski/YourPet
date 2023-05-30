@@ -18,6 +18,7 @@ using YourPetAPI.Exceptions;
 using YourPetAPI.Models;
 using YourPetAPI.Models.DTOs.User;
 using YourPetAPI.Repositories;
+using YourPetBackend.Validators;
 
 namespace YourPetAPI.Services
 {
@@ -30,19 +31,21 @@ namespace YourPetAPI.Services
 
     public class AccountService : IAccountService
     {
-        private readonly AppDbContext _dbContext;
+        //private readonly AppDbContext _dbContext;
         private readonly IMapper _mapper;
        // private readonly ILogger _logger;
         private readonly IUserRepository _userRepository;
         private readonly IPasswordHasher<User> _passwordHasher;
         private readonly AuthenticationSettings _authenticationSettings;
+        private readonly IUserValidator _userValidator;
 
-        public AccountService(IMapper mapper, IUserRepository userRepository, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings)
+        public AccountService(IMapper mapper, IUserRepository userRepository, IPasswordHasher<User> passwordHasher, AuthenticationSettings authenticationSettings, IUserValidator userValidator)
         {
             _mapper = mapper;
             _userRepository = userRepository;
             _passwordHasher = passwordHasher;
             _authenticationSettings = authenticationSettings;
+            _userValidator = userValidator;
         }
 
         public async Task<AuthToken> GenerateJwtToken(LoginDto dto)
@@ -103,6 +106,9 @@ namespace YourPetAPI.Services
             newUser.PasswordHash = registerUserDto.Password;
             newUser.RegisterDate = DateTime.UtcNow;
             newUser.IsActive = false;
+            await _userValidator.RegisterUserValidate(newUser);
+          
+           
            // newUser.RoleId = 3;
             var hashedPassword = _passwordHasher.HashPassword(newUser, registerUserDto.Password);
             newUser.PasswordHash = hashedPassword;

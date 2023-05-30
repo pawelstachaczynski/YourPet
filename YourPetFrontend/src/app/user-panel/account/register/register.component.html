@@ -1,5 +1,5 @@
-
-<div class="absolute">
+<router-outlet *ngIf="!isActive('/register')"></router-outlet>
+<div class="absolute" *ngIf="isActive('/register')">
   <div class="row">
     <div class="col-2"></div>
     <div class="col-8">

@@ -11,7 +11,7 @@ using YourPetAPI.Database;
 using YourPetAPI.Models;
 using YourPetAPI.Repositories;
 using YourPetAPI.Services;
-
+using YourPetBackend.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -46,6 +46,7 @@ builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IRoleService, RoleService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+builder.Services.AddScoped<IUserValidator, UserValidator>();
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 builder.Services.AddControllers();

@@ -23,6 +23,7 @@ import { MatFormFieldModule, MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/mat
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MaterialModule } from 'src/material.module';
+import { RegisterSuccessComponent } from './user-panel/account/register/register-success/register-success.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { MaterialModule } from 'src/material.module';
     LoginComponent,
     AccountComponent,
     SpinnerComponent,
-    RegisterComponent
+    RegisterComponent,
+    RegisterSuccessComponent
   ],
   imports: [
     BrowserModule,

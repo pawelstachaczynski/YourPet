@@ -54,14 +54,13 @@ namespace YourPetAPI.Controllers
             return Ok();
         }
 
-        [HttpPost]
-        public ActionResult RegisterUser([FromBody] RegisterUserDto dto)
-        {
+        //[HttpPost]
+        //public ActionResult RegisterUser([FromBody] RegisterUserDto dto)
+        //{
 
-            var id = _userService.RegisterUser(dto);
-
-            return Created($"/api/user/{id}", null);
-        }
+        //    var id = _userService.RegisterUser(dto);
+        //    return Created($"/api/user/{id}", null);
+        //}
 
         [HttpDelete("{id}")]
         public ActionResult DeleteUser([FromRoute] int id)

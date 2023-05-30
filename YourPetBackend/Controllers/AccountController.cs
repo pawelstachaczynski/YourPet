@@ -35,8 +35,8 @@ namespace YourPetAPI.Controllers
         [Route("register")]
         public async Task<ActionResult> RegisterUser ([FromBody] RegisterUserDto registerUserDto)
         {
-            await _accountService.RegisterUser(registerUserDto);
-            return Ok();
+          await _accountService.RegisterUser(registerUserDto);
+           return Ok();
         }
         
         [HttpPost]

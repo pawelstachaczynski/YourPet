@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Reflection.Metadata.Ecma335;
 
 namespace YourPetAPI.Repositories
 {
@@ -16,6 +17,8 @@ namespace YourPetAPI.Repositories
         Task<int> RegisterUser(User newUser);
 
         Task<User> GetUserByEmail(string email);
+
+        Task<bool> EMailExist(User user);
     }
 
     public class UserRepository : IUserRepository
@@ -49,6 +52,11 @@ namespace YourPetAPI.Repositories
         public async Task<User> GetUserByEmail(string email)
         {
             return await _context.Users.Include(x => x.Role).FirstOrDefaultAsync(x => x.Email == email);
+        }
+
+        public async Task<bool>EMailExist(User user)
+        {
+            return await _context.Users.AnyAsync(x => x.Email == user.Email);
         }
     }
 }

@@ -52,7 +52,9 @@ export class RegisterComponent implements OnInit{
     private configStore: ConfigStore,
     private alertService : AlertService
   ) {}
-
+    isActive(url: string) : boolean {
+      return this.router.isActive(url, true);
+    }
 
   async registerUser() {
     if(!this.validateForm())
@@ -65,11 +67,15 @@ export class RegisterComponent implements OnInit{
     await lastValueFrom(this.authService.signup(registerUser).pipe(timeout(2000))).then(() => {
       this.configStore.stopLoadingPanel();
       this.alertService.showSuccess("Rejestracja przebiegła pomyslnie!")
+      
     }).catch((error) => {
       console.log(error.message)
       this.configStore.stopLoadingPanel();
       this.alertService.showError(error.message)
+    
     });
+    
+    this.router.navigate(['./success'],{relativeTo: this.route})
     
    
     /* setTimeout(() => {
