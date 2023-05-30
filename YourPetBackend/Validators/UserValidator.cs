@@ -59,6 +59,7 @@ namespace YourPetBackend.Validators
                 throw new Exception();
             }
             return true;
+            //
         }
 
         public bool ChceckPersonalData(string firstName, string lastName, string phone, int role)
