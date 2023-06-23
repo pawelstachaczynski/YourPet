@@ -75,8 +75,8 @@ export class RegisterComponent implements OnInit{
     
     });
     
-    this.router.navigate(['./success'],{relativeTo: this.route})
-    
+    //this.router.navigate(['./success'],{relativeTo: this.route})
+    this.router.navigate(['./'])
    
     /* setTimeout(() => {
       this.configStore.stopLoadingPanel();

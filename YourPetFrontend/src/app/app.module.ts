@@ -24,6 +24,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MaterialModule } from 'src/material.module';
 import { RegisterSuccessComponent } from './user-panel/account/register/register-success/register-success.component';
+import { HttpErrorInterceptorService } from './services/interceptors/http-error-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,15 +47,20 @@ import { RegisterSuccessComponent } from './user-panel/account/register/register
     MaterialModule,
     HttpClientModule,
     ToastrModule.forRoot({
-    })
+      timeOut: 10000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
   ],
   providers: [
     ConfigStore,
     HttpClient,
     AlertService,
     AuthService,
-    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}}
+    {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptorService, multi:true},
+    {provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {appearance: 'outline'}, }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
